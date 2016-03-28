@@ -1,0 +1,1 @@
+明白清楚binary search tree的定义是什么 左<中<右。注意最后if条件都没满足时return root
