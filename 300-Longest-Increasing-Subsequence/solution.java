@@ -10,7 +10,7 @@ public class Solution {
         }
         for(int i=1; i<length; i++){
             for(int j=0; j<i; j++){
-                if(nums[j]<=nums[i]){
+                if(nums[j]<nums[i]){
                     res[i] = Math.max(res[i], res[j]+1);
                 }
             }
