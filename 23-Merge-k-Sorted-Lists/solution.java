@@ -40,6 +40,9 @@ public class Solution {
     private ListNode mergeHelper(ListNode[] lists, int s, int e){
         int start = s;
         int end = e;
+        if(start==end){
+            return list[start];
+        }
         int mid = start+(end-start)/2;
         
         ListNode left = mergeHelper(lists, start, mid);
