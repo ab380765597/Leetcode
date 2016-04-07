@@ -41,7 +41,7 @@ public class Solution {
         int start = s;
         int end = e;
         if(start==end){
-            return list[start];
+            return lists[start];
         }
         int mid = start+(end-start)/2;
         
