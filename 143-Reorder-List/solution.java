@@ -9,7 +9,7 @@
 public class Solution {
     public void reorderList(ListNode head) {
         if(head==null||head.next==null){
-            return head;
+            return ;
         }
         ListNode mid = findMid(head);
         ListNode postHead = reverse(mid.next);
