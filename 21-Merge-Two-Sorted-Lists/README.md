@@ -1,1 +1,1 @@
-Using dummy head as return start point. Knowing the requirement for node.
+Using dummy head as return start point. Knowing the requirement for each linked list node
