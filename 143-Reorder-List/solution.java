@@ -54,7 +54,7 @@ public class Solution {
                 h1 = h1.next;
             }else{
                 head.next=h2;
-                h2 = h2.next
+                h2 = h2.next;
             }
             head = head.next;
             counter++;
