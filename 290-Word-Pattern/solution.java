@@ -3,20 +3,20 @@ public class Solution {
         if(pattern==null||pattern.length()==0){
             return true;
         }
-        String arr = str.split(" ");
+        String[] arr = str.split(" ");
         int arrlength = arr.length;
         int plength = pattern.length();
         if(arrlength!=plength){
             return false;
         }
-        HashMap<Character, String> map = new HashMap<Character, String>();
+        HashMap<String, Character> map = new HashMap<String, Character>();
         for(int i=0; i<arrlength; i++){
-            if(map.containsKey(pattern.charAt(i))){
-                if(!map.get(pattern.charAt(i)).equals(arr[i])){
+            if(map.containsKey(arr[i])){
+                if(!map.get(arr[i])!=pattern.charAt(i)){
                     return false;
                 }
             }else{
-                map.put(pattern.charAt(i), arr[i]);
+                map.put(arr[i], pattern.charAt(i));
             }
         }
         return true;
