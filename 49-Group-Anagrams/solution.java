@@ -10,12 +10,12 @@ public class Solution {
             String temp = strs[i];
             char[] arr = temp.toCharArray();
             Arrays.sort(arr);
-            String key = arr.toString();
+            String key = Strings.valueOf(arr);
             if(map.containsKey(key)){
                 map.get(key).add(temp);
             }else{
                 map.put(key, new ArrayList<String>());
-                map.put(key, map.get(key).add(temp));
+                map.get(key).add(temp);
             }
         }
         return new ArrayList<List<String>>(map.values());
