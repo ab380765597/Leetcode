@@ -4,8 +4,8 @@ public class Solution {
             return false;
         }
         int length = s.length();
-        char sc = s.toCharArray();
-        char tc = t.toCharArray();
+        char[] sc = s.toCharArray();
+        char[] tc = t.toCharArray();
         Arrays.sort(sc);
         Arrays.sort(tc);
         for(int i=0; i<length; i++){
