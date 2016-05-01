@@ -14,10 +14,10 @@ public class Solution {
             if(map.containsKey(key)){
                 map.get(key).add(temp);
             }else{
-                map.put(key, new ArrayList<String>);
+                map.put(key, new ArrayList<String>());
                 map.put(key, map.get(key).add(temp));
             }
         }
-        return map;
+        return new ArrayList<List<String>>(map.values());
     }
 }
