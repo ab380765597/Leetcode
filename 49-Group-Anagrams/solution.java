@@ -10,13 +10,16 @@ public class Solution {
             String temp = strs[i];
             char[] arr = temp.toCharArray();
             Arrays.sort(arr);
-            String key = Strings.valueOf(arr);
+            String key = String.valueOf(arr);
             if(map.containsKey(key)){
                 map.get(key).add(temp);
             }else{
                 map.put(key, new ArrayList<String>());
                 map.get(key).add(temp);
             }
+        }
+        for(String key: map.keySet()){
+            Collections.sort(map.get(key));
         }
         return new ArrayList<List<String>>(map.values());
     }
