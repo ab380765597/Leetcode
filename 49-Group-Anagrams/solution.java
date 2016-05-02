@@ -7,9 +7,9 @@ public class Solution {
         int length = strs.length;
         for(int i=0; i<length; i++){
             String temp = strs[i];
-            Char[] arr = temp.toCharArray();
+            char[] arr = temp.toCharArray();
             Arrays.sort(arr);
-            String key = arr.toString();
+            String key = String.valueOf(arr);
             if(map.containsKey(key)){
                 map.get(key).add(temp);
             }else{
