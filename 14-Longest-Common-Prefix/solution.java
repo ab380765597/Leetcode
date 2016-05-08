@@ -6,7 +6,7 @@ public class Solution {
         StringBuilder sb = new StringBuilder();
         int length = strs.length;
         int point = 0;
-        while(point<=strs[0].length){
+        while(point<=strs[0].length()){
             String temp = sb.toString();
             sb.append(strs[0].charAt(point));
             for(int i=1; i<length; i++){
