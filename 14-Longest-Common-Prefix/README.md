@@ -1,0 +1,1 @@
+注意 str.substring(i, j) 的index 为 i 到 j-1; 并且 str.substring(0, 0) = null
