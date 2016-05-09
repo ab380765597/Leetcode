@@ -10,7 +10,7 @@ public class Solution {
             String temp = sb.toString();
             sb.append(strs[0].charAt(point));
             for(int i=1; i<length; i++){
-                if(!strs[i].substring(0, point+1).equals(sb.toString())){
+                if(strs[i].length() < point+1 || !strs[i].substring(0, point+1).equals(sb.toString())){
                     return temp;
                 }
             }
