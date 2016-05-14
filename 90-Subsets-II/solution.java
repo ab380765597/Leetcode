@@ -7,7 +7,7 @@ public class Solution {
         Arrays.sort(nums);
         List<Integer> sol = new ArrayList<Integer>();
         int length = nums.length;
-        helper(nums, 0, res, sol, visited);
+        helper(nums, 0, res, sol);
         return res;
     }
     private void helper(int[] nums, int pos, List<List<Integer>>res, List<Integer>sol){
@@ -17,7 +17,7 @@ public class Solution {
                 continue;
             }
             sol.add(nums[i]);
-            helper(nums, i+1, res, sol, visited);
+            helper(nums, i+1, res, sol);
             sol.remove(sol.size()-1);
         }
     }
