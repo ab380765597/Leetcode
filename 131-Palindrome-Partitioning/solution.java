@@ -24,6 +24,9 @@ public class Solution {
         return true;
     }
     private void helper(String s, List<String> sol, List<List<String>> res, int pos){
+        if(pos>=s.length()){
+            return;
+        }
         res.add(new ArrayList<String>(sol));
         for(int i=pos; i<s.length(); i++){
             String temp = s.substring(pos, i);
