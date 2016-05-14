@@ -4,38 +4,39 @@ public class Solution {
         if(s==null||s.length()==0){
             return res;
         }
-        List<String> sol = new ArrayList<String>();
         int length = s.length();
-        helper(s, sol, res, 0);
+        List<String> path = new ArrayList<String>();
+        helper(res, path, 0, s);
         return res;
     }
-    private boolean isPalind(String s){
-        if(s==null){
-            return true;
-        }
-        if(s.length()<2){
-            return true;
-        }
-        for(int i=0, j=s.length()-1; i<j; i++, j--){
-            if(s.charAt(i)!=s.charAt(j)){
-                return false;
-            }
-        }
-        return true;
-    }
-    private void helper(String s, List<String> sol, List<List<String>> res, int pos){
+    private void helper(List<List<String>> res, List<String> path, int pos, String s){
         if(pos==s.length()){
-            res.add(new ArrayList<String>(sol));
+            res.add(new ArrayList<String>(path));
             return;
         }
-        for(int i=pos+1; i<s.length(); i++){
+        for(int i=pos+1; i<=s.length(); i++){
             String temp = s.substring(pos, i);
-            if(!isPalind(temp)){
+            if(!isPalindrome(temp)){
                 continue;
             }
-            sol.add(temp);
-            helper(s, sol, res, i);
-            sol.remove(sol.size());
+            path.add(temp);
+            helper(res, path, i, s);
+            path.remove(path.size()-1);
         }
+    }
+    private boolean isPalindrome(String s){
+        if(s==null||s.length()==0){
+            return true;
+        }
+        int start = 0;
+        int end = s.length()-1;
+        while(start<end){
+            if(s.charAt(start)!=s.charAt(end)){
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
     }
 }
