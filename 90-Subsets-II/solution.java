@@ -14,7 +14,7 @@ public class Solution {
     private void helper(int[] nums, int pos, List<List<Integer>>res, List<Integer>sol, int[] visited){
         res.add(new ArrayList<Integer>(sol));
         for(int i=pos; i<nums.length; i++){
-            if(visited[i]==1||i!=pos && nums[i]==nums[i-1] && visited[i-1]==0){
+            if(i!=pos && nums[i]==nums[i-1] ){
                 continue;
             }
             sol.add(nums[i]);
