@@ -18,7 +18,7 @@ public class Solution {
                 break;
             }
             sol.add(i);
-            helper(k, n-i, i+1; res, sol);
+            helper(k, n-i, i+1, res, sol);
             sol.remove(sol.size()-1);
         }
     }
