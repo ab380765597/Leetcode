@@ -15,6 +15,9 @@ public class Solution {
             return;
         }
         for(int i=0; i<nums.length; i++){
+            if(sol.contains(nums[i])){
+                continue;
+            }
             sol.add(nums[i]);
             Helper(res, sol, nums);
             sol.remove(sol.size()-1);
