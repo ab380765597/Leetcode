@@ -15,7 +15,7 @@ public class Solution {
             return;
         }
         for(int i=0; i<nums.length; i++){
-            sol.add(nums[i]]);
+            sol.add(nums[i]);
             Helper(res, sol, nums);
             sol.remove(sol.size()-1);
         }
