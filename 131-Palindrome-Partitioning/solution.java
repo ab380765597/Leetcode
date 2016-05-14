@@ -28,13 +28,13 @@ public class Solution {
             res.add(new ArrayList<String>(sol));
             return;
         }
-        for(int i=pos+1; i<=s.length(); i++){
+        for(int i=pos; i<=s.length(); i++){
             String temp = s.substring(pos, i);
             if(!isPalind(temp)){
                 continue;
             }
             sol.add(temp);
-            helper(s, sol, res, i);
+            helper(s, sol, res, i+1);
             sol.remove(sol.size()-1);
         }
     }
