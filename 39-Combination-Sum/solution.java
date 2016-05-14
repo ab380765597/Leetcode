@@ -1,7 +1,7 @@
 public class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
-        if(candidates==null||candidates.length()==0){
+        if(candidates==null||candidates.length==0){
             return res;
         }
         List<Integer> sol = new ArrayList<Integer>();
@@ -12,12 +12,17 @@ public class Solution {
         if(target==0){
             res.add(new ArrayList<Integer>(sol));
         }
+        int prev = -1;
         for(int i=pos; i<candidates.length; i++){
             if(candidates[i]>target){
-                return;
+                break;
+            }
+            if(prev!=-1 && prev==candidate[i]){
+                continue;
             }
             sol.add(candidates[i]);
             helper(candidates, target-candidates[i], sol, res, i);
+            prev = candidates[i];
             sol.remove(sol.size()-1);
         }
     }
