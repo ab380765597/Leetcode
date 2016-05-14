@@ -7,29 +7,25 @@ public class Solution {
         int[] f = new int[length+1];
         f[0] = 0;
         for(int i=1; i<=length; i++){
-            f[i] = i-1;
-        }
-        
-        for(int i=1;i<=length; i++){
-            for(int j=0; j<i; j++){
+            f[i] = Integer.MAX_VALUE;
+            for(int j=0; j<=i; j++){
                 String temp = s.substring(j, i);
-                if(ifPalid(temp)){
-                    f[i] = Math.min(f[j]+1, f[i]);
+                if(isValid(temp)){
+                    f[i] = Math.min(f[i], f[j]+1);
                 }
             }
         }
         return f[length];
     }
-    private boolean ifPalid(String s){
+    private boolean isValid(String s){
+        if(s==null||s.length()<2){
+            return true;
+        }
         int length = s.length();
-        int start = 0;
-        int end = length-1;
-        while(start<end){
-            if(s.charAt(end)!=s.charAt(start)){
+        for(int i=0, j=length-1; i<j; i++, j--){
+            if(s.charAt(i)!=s.charAt(j)){
                 return false;
             }
-            start++;
-            end--;
         }
         return true;
     }
