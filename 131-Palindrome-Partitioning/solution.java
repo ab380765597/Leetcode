@@ -1,42 +1,41 @@
 public class Solution {
     public List<List<String>> partition(String s) {
         List<List<String>> res = new ArrayList<List<String>>();
-        if(s==null||s.length()==0){
+        if(s==null){
             return res;
         }
+        List<String> sol = new ArrayList<String>();
         int length = s.length();
-        List<String> path = new ArrayList<String>();
-        helper(res, path, 0, s);
+        helper(s, sol, res, 0);
         return res;
     }
-    private void helper(List<List<String>> res, List<String> path, int pos, String s){
+    private boolean isPalind(String s){
+        if(s==null){
+            return true;
+        }
+        if(s.length()<2){
+            return true;
+        }
+        for(int i=0, j=s.length()-1; i<j; i++, j--){
+            if(s.charAt(i)!=s.charAt(j)){
+                return false;
+            }
+        }
+        return true;
+    }
+    private void helper(String s, List<String> sol, List<List<String>> res, int pos){
         if(pos==s.length()){
-            res.add(new ArrayList<String>(path));
+            res.add(new ArrayList<String>(sol));
             return;
         }
         for(int i=pos+1; i<=s.length(); i++){
             String temp = s.substring(pos, i);
-            if(!isPalindrome(temp)){
+            if(!isPalind(temp)){
                 continue;
             }
-            path.add(temp);
-            helper(res, path, i, s);
-            path.remove(path.size()-1);
+            sol.add(temp);
+            helper(s, sol, res, i);
+            sol.remove(sol.size()-1);
         }
-    }
-    private boolean isPalindrome(String s){
-        if(s==null||s.length()==0){
-            return true;
-        }
-        int start = 0;
-        int end = s.length()-1;
-        while(start<end){
-            if(s.charAt(start)!=s.charAt(end)){
-                return false;
-            }
-            start++;
-            end--;
-        }
-        return true;
     }
 }
