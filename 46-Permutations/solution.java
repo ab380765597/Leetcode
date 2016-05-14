@@ -14,7 +14,7 @@ public class Solution {
             res.add(new ArrayList<Integer>(sol));
             return;
         }
-        for(int i=pos; i<nums.length; i++){
+        for(int i=0; i<nums.length; i++){
             sol.add(nums.get(i));
             Helper(res, sol, nums);
             sol.remove(sol.size()-1);
