@@ -11,7 +11,7 @@ public class Solution {
     }
     private boolean isPalind(String s){
         if(s==null){
-            return false;
+            return true;
         }
         if(s.length()<2){
             return true;
@@ -24,17 +24,18 @@ public class Solution {
         return true;
     }
     private void helper(String s, List<String> sol, List<List<String>> res, int pos){
-        if(pos>=s.length()){
+        if(pos==s.length()){
+            res.add(new ArrayList<String>(sol));
             return;
         }
-        res.add(new ArrayList<String>(sol));
-        for(int i=pos; i<s.length(); i++){
+        for(int i=pos+1; i<s.length(); i++){
             String temp = s.substring(pos, i);
-            if(isPalind(temp)){
-                sol.add(temp);
-                helper(s, sol, res, i+1);
-                sol.remove(sol.size());
+            if(!isPalind(temp)){
+                continue;
             }
+            sol.add(temp);
+            helper(s, sol, res, i);
+            sol.remove(sol.size());
         }
     }
 }
