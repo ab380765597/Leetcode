@@ -4,6 +4,7 @@ public class Solution {
         if(candidates==null||candidates.length==0){
             return res;
         }
+        Arrays.sort(candidates);
         List<Integer> sol = new ArrayList<Integer>();
         helper(candidates, target, sol, res, 0);
         return res;
@@ -11,13 +12,14 @@ public class Solution {
     private void helper(int[] candidates, int target, List<Integer> sol, List<List<Integer>> res, int pos){
         if(target==0){
             res.add(new ArrayList<Integer>(sol));
+            return;
         }
         int prev = -1;
         for(int i=pos; i<candidates.length; i++){
             if(candidates[i]>target){
                 break;
             }
-            if(prev!=-1 && prev==candidate[i]){
+            if(prev!=-1 && prev==candidates[i]){
                 continue;
             }
             sol.add(candidates[i]);
