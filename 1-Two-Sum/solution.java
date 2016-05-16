@@ -4,18 +4,14 @@ public class Solution {
             return new int[] {-1, -1};
         }
         int length = nums.length;
-        int[] res = new int[2];
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-        
-        for(int i=0;i<length; i++){
-            if(map.containsKey(target-nums[i])){
-                res[1] = i ;
-                res[0] = map.get(target-nums[i]) ;
-                break;
+        for(int i=0; i<length; i++){
+            if(map.contains(target-nums[i])){
+                return new int[] {map.get(target-nums[i]), i};
             }else{
-                map.put(nums[i], i);
+                map.put(nums[i]);
             }
         }
-        return res;
+        return new int[]{-1, -1};
     }
 }
