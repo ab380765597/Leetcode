@@ -8,7 +8,7 @@ public class Solution {
         int end = length-1;
         int maxArea = 0;
         while(start<end){
-            maxArea = (end-start)*Math.min(height[end], height[start]);
+            maxArea = Math.max((end-start)*Math.min(height[end], height[start]), maxArea);
             if(height[start]<height[end]){
                 start++;
             }else{
