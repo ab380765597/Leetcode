@@ -24,7 +24,7 @@ public class Solution {
                 }else if(sum<target){
                     start++;
                 }else{
-                    return target
+                    return target;
                 }
             }
         }
