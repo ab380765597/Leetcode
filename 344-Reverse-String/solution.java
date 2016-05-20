@@ -1,7 +1,7 @@
 public class Solution {
     public String reverseString(String s) {
         if(s==null||s.length()==0){
-            return 0;
+            return s;
         }
         int length = s.length();
         char[] res = s.toCharArray();
@@ -14,6 +14,6 @@ public class Solution {
             start++;
             end--;
         }
-        return res.toString();
+        return new String(res);
     }
 }
