@@ -12,16 +12,19 @@ public class Solution {
         }
         ArrayList<Integer> arr = new ArrayList<Integer>();
         for(int j=0; j<length2; j++){
-            /*if(map.containsKey(nums2[j])){
+            if(map.containsKey(nums2[j])){
                 int frq = map.get(nums2[j]);
                 frq--;
-                if(frq==0){
+                if(frq>0){
+                    map.put(nums2[j], frq);
+                    
+                }else{
                     map.remove(nums2[j]);
                 }
-                map.put(nums2[j], frq);
+                
                 arr.add(nums2[j]);
-            }*/
-            if(map.containsKey(nums2[j])){
+            }
+            /*if(map.containsKey(nums2[j])){
                 int feq = map.get(nums2[j]);
                 if(feq>1){
                     map.put(nums2[j], feq-1);
@@ -29,7 +32,7 @@ public class Solution {
                     map.remove(nums2[j]);
                 }
                 arr.add(nums2[j]);
-            }
+            }*/
             
         }
         int[] res = new int[arr.size()];
