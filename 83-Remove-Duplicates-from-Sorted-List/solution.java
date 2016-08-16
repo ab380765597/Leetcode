@@ -11,15 +11,18 @@ public class Solution {
         if(head==null||head.next==null){
             return head;
         }
-        ListNode fast = head;
-        
-        while(fast!=null && fast.next!=null){
-            if(fast.val==fast.next.val){
-                fast.next = fast.next.next;
-            }else{
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while(fast!=null){
+            if(fast.val==slow.val){
                 fast = fast.next;
+            }else{
+                slow.next = fast;
+                fast = fast.next;
+                slow = slow.next;
             }
         }
+        slow.next = fast;
         return head;
     }
 }
