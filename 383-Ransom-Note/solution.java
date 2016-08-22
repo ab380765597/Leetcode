@@ -6,15 +6,17 @@ public class Solution {
         int length = magazine.length();
         int i=0;
         int j=0;
-        for(i=0; i<length-ransomNote.length(); i++){
-            for(j=0; j<ransomNote.length(); j++){
-                if(ransomNote.charAt(j)!=magazine.charAt(i+j)){
-                    break;
+        while(i<length){
+            if(ransomNote.charAt(j)==magazine.charAt(i)){
+                j++;
+                if(j==j==ransomNote.length()){
+                    return true;
                 }
             }
-            if(j==ransomNote.length()){
-                return true;
-            }
+            i++;
+        }
+        if(j==ransomNote.length()){
+            return true;
         }
         return false;
     }
