@@ -9,15 +9,9 @@ Given s = "hello", return "olleh".
 
 <div>
 
-[Subscribe](/subscribe/) to see which companies asked this question
+<div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-</div>
-
-<div>
-
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
-
-<span class="hidebutton" style="display: inline;">[Two Pointers](/tag/two-pointers/) [String](/tag/string/)</span></div>
+<span class="hidebutton">[Two Pointers](/tag/two-pointers/) [String](/tag/string/)</span></div>
 
 <div>
 
