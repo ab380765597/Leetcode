@@ -18,7 +18,7 @@ public class Solution {
         if(intervals==null||intervals.size()==0){
             return res;
         }
-        Collections.sort(intervals, IntervalComparator());
+        Collections.sort(intervals, new IntervalComparator());
         Interval pre = intervals.get(0);
         for(int i=1; i<intervals.size(); i++){
             Interval cur = intervals.get(i);
