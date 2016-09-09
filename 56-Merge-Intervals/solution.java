@@ -23,8 +23,8 @@ public class Solution {
         for(int i=1; i<intervals.size(); i++){
             Interval cur = intervals.get(i);
             if(pre.end>=cur.start){
-                Interval temp = new Interval(pre.start, Math.max(pre.end, start.end));
-                res.add(temp);
+                Interval temp = new Interval(pre.start, Math.max(pre.end, cur.end));
+                //res.add(temp);
                 pre = temp;
             }else{
                 res.add(pre);
