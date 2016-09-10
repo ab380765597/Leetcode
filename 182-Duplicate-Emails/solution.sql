@@ -7,4 +7,4 @@ p.Id not in
 (select MIN(Id) as MINId, Email
 from Person
 Group by Email
-) as ToBeRemoved
+) 
