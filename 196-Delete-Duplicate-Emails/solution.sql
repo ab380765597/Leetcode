@@ -1,11 +1,11 @@
 # Write your MySQL query statement below
-delete from Person
+delete p from Person as p 
 where 
-Id not in
+p.Id not in
 
 (select MINId
 from
 (select MIN(Id) as MINId, Email
 from Person
-Group by Id)
+Group by Id) as ToRemovedId
 )
