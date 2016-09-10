@@ -4,4 +4,4 @@
 select MAX(e.Salary) as MAXSalary, e.Name, e.DepartmentId, e.Id, d.Name
 from Employee e, Department d
 group by e.DepartmentId
-having e.DepartmentId = d.Id
+having Employee.DepartmentId = Department.Id
