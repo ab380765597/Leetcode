@@ -31,16 +31,16 @@ public class Solution {
             while(count==0){
                 if(fast-slow<min){
                     min = fast-slow;
-                    startIndex = left;
+                    startIndex = slow;
                 }
-                Integer exist = map.get(s.charAt(left));
+                Integer exist = map.get(s.charAt(slow));
                 if(exist!=null){
-                    map.put(s.charAt(left), exist+1);
+                    map.put(s.charAt(slow), exist+1);
                     if(exist==0){
                         count++;
                     }
                 }
-                left++;
+                slow++;
             }
         }
         return min==Integer.MAX_VALUE? new String(): new String(s.substring(startIndex, startIndex+min));
