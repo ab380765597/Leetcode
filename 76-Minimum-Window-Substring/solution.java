@@ -1,48 +1,48 @@
 public class Solution {
-    int initTargetHash(int[] targethash, String Target){
-        int targetnum = 0;
-        for(char ch: Traget.toCharArray()){
-            targetnum++;
-            targethash[ch]++;
-        }
-        return targetnum;
-    }
-    boolean vaild(int[] sourceHash, int[] targetHash){
-        for(int i=0; i<256; i++){
-            if(targetHash[i]>sourceHash[i]){
-                rerturn false;
-            }
-        }
-        return true;
-    }
     public String minWindow(String s, String t) {
-        int ans = Integer.MAX_VALUE;
-        String minStr = "";
-        
-        int[] sourceHash = new int[256];
-        int[] targetHash = new int[256];
-        
-        initTargetHash(targetHash, Target);
-        int j = 0; 
-        int i = 0;
-        for(i=0; i<length; i++){
-            while(!valid(sourceHash, targetHash) && j<length){
-                sourceHash[Source.charAt(j)]++;
-                if(j<length){
-                    j++;
-                }else{
-                    break;
-                }
-            }
-            if(valid(sourceHash, targetHash)){
-                if(ans>j-i){
-                    ans = Math.min(ans, j-i);
-                    minStr = s.substring(i, j);
-                }
-            }
-            sourceHash[s.charAt(i)]--;
-            
+        if(s==null||s.length()==0){
+            return null;
         }
-        return minStr;
+        int length = s.length();
+        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+        int len = t.length();
+        for(int i=0; i<len; i++){
+            if(map.containsKey(s.charAt(i))){
+                map.put(s.charAt(i), map.get(s.charAt(i))+1);
+            }else{
+                map.put(s.charAt(i), 1);
+            }
+        }
+        int min = Integer.MAX_VALUE;
+        int count = map.size();
+        int fast = 0;
+        int slow = 0;
+        int startIndex = -1;
+        while(fast<length){
+            if(map.containsKey(s.charAt(fast))){
+                int val = map.get(s.charAt(fast));
+                val--;
+                map.put(s.charAt(fast), val);
+                if(val>=0){
+                    count--;
+                }
+            }
+            fast++;
+            while(count==0){
+                if(fast-slow<min){
+                    min = fast-slow;
+                    startIndex = left;
+                }
+                Integer exist = map.get(s.charAt(left));
+                if(exist!=null){
+                    map.put(s.charAt(left), exist+1);
+                    if(exist==0){
+                        count++;
+                    }
+                }
+                left++;
+            }
+        }
+        return min==Integer.MAX_VALUE? new String(): new String(s.substring(startIndex, startIndex+min));
     }
 }
