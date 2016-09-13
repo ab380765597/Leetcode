@@ -12,9 +12,10 @@ public class Solution {
             return head;
         }
         ListNode left = new ListNode(0);
+        ListNode leftdummy = left;
         ListNode right = new ListNode(0);
-        ListNode dummyleft = left;
-        ListNode dummyright = right;
+        ListNode rightdummy = right;
+        
         while(head!=null){
             if(head.val<x){
                 left.next = head;
@@ -25,8 +26,7 @@ public class Solution {
             }
             head = head.next;
         }
-        right.next = null;
-        left.next = dummyright.next;
-        return dummyleft.next;
+        left.next = rightdummy.next;
+        return leftdummy.next;
     }
 }
