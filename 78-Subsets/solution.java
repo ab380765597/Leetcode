@@ -4,16 +4,16 @@ public class Solution {
         if(nums==null||nums.length==0){
             return res;
         }
-        Arrays.sort(nums);
         List<Integer> sol = new ArrayList<Integer>();
-        helper(nums, res, sol, 0);
+        Arrays.sort(nums);
+        helper(nums, 0, sol, res);
         return res;
     }
-    private void helper(int[] nums, List<List<Integer>> res, List<Integer> sol, int pos){
+    private void helper(int[] nums, int pos, List<Integer> sol, List<List<Integer>> res){
         res.add(new ArrayList<Integer>(sol));
         for(int i=pos; i<nums.length; i++){
             sol.add(nums[i]);
-            helper(nums, res, sol, i+1);
+            helper(nums, i+1, sol, res);
             sol.remove(sol.size()-1);
         }
     }
