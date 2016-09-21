@@ -10,7 +10,7 @@ public class Solution {
         while(start>=0){
             if(start==0||s.charAt(start-1)==' '){
                 String temp = s.substring(start, end);
-                if(sb.length!=0){
+                if(sb.length()!=0){
                     sb.append(' ');
                 }
                 sb.append(temp);
