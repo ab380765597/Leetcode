@@ -7,9 +7,9 @@ public class Solution {
          int length = s.length;
          partialRev(s, 0, length-1);
          int i = 0;
-         for(int j=1; j<length+1; j++){
+         for(int j=1; j<=length; j++){
              if(j==length||s[j]==' '){
-                 partialRev(s, i, j);
+                 partialRev(s, i, j-1);
              }else if(s[j-1]==' '){
                  i = j;
              }
