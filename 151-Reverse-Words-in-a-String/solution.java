@@ -1,7 +1,7 @@
 public class Solution {
     public String reverseWords(String s) {
-        if(s==null||s.length()==0){
-            return s;
+        if(s==null||s.length()==0||s==' '){
+            return "";
         }
         int length = s.length();
         int end = length;
@@ -17,7 +17,7 @@ public class Solution {
             }else if(s.charAt(start)==' '){
                 end = start;
             }
-            start++;
+            start--;
         }
         return new String(sb);
     }
