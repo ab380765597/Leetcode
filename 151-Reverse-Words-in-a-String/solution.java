@@ -1,7 +1,7 @@
 public class Solution {
     public String reverseWords(String s) {
-        if(s==null||s.length()==0||s==' '){
-            return "";
+        if(s==null||s.length()==0){
+            return s;
         }
         int length = s.length();
         int end = length;
